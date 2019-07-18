@@ -1,9 +1,12 @@
 const express = require("express");
-
+const recipeRoute = require("./recipes/recipe-route");
 const server = express();
 
 server.use(express.json());
 server.use(logger);
+
+server.use("/api/recipes", recipeRoute);
+
 server.get("/", (req, res) => {
   res.send(`<h2>Let's write some code!</h2>`);
 });

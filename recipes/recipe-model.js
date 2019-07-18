@@ -5,13 +5,15 @@ module.exports = {
 };
 
 function getRecipes() {
-  return db("recipe");
+  return db("recipes");
 }
 
 function getShoppingList(recipe_id) {
-  return db("recipe");
+  return db("ingredients")
+  .where("recipe_id", recipe_id);
 }
 
 function getInstructions(recipe_id) {
-  return db("recipe");
+  return db("steps")
+  .where("recipe_id", recipe_id);;
 }
